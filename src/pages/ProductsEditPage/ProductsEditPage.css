@@ -1,0 +1,84 @@
+.productsEditPage-wrapper {
+	width: 100%;
+	height: 100vh;
+	background: rgb(68, 178, 111);
+	padding: 21px 30px;
+}
+
+.productsEditPage-top {
+	margin-bottom: 30px;
+}
+
+.productsEditPage-btns {
+	padding: 0 40px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 150px;
+}
+
+.productsEditPage-title {
+	color: rgb(255, 255, 255);
+	font-family: Inter;
+	font-size: 64px;
+	font-weight: 700;
+	line-height: 77px;
+	letter-spacing: 0%;
+	text-align: center;
+	margin-bottom: 75px;
+}
+
+.productsEditPage-table {
+	width: 870px;
+	margin: 0 auto;
+}
+
+.productsEditPage-table-head {
+	width: 100%;
+	display: flex;
+}
+.productsEditPage-table-head-element {
+	width: 145px;
+	height: 40px;
+	background: rgb(14, 200, 111);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: rgb(114, 105, 105);
+	font-family: Inter;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 19px;
+	letter-spacing: 0%;
+	text-align: left;
+}
+
+.productsEditPage-table-item {
+}
+
+.productsEditPage-table-item-id {
+}
+
+.productsEditPage-table-item-category {
+}
+
+.productsEditPage-table-item-name {
+}
+
+.productsEditPage-table-item-quantity {
+}
+
+.productsEditPage-table-item-price {
+}
+
+.productsEditPage-table-item-btns {
+}
+
+.productsEditPage-table-item-edit-btn {
+}
+
+.productsEditPage-table-item-edit-btn-icon {
+}
+
+.productsEditPage-table-item-delete-btn {
+}

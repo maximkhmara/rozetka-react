@@ -1,0 +1,20 @@
+.productsEditPage-btn {
+	color: rgb(5, 188, 82);
+	font-family: Inter;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 19px;
+	letter-spacing: 0%;
+	text-align: left;
+	width: 179px;
+	height: 52px;
+	background: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 14px;
+	cursor: pointer;
+}
+.productsEditPage-btn svg {
+	color: #000;
+}
