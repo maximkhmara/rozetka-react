@@ -1,4 +1,4 @@
-.productsEditPage-btn {
+.IconButton-btn {
 	color: rgb(5, 188, 82);
 	font-family: Inter;
 	font-size: 16px;
@@ -15,6 +15,6 @@
 	gap: 14px;
 	cursor: pointer;
 }
-.productsEditPage-btn svg {
+.IconButton-btn svg {
 	color: #000;
 }
