@@ -1,17 +1,38 @@
 import React from 'react';
-import './ProductTable.css'; // Importing the CSS file for styling
+import './ProductTable.css';
+import { FaPencilAlt } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
+import { TbArrowsDownUp } from 'react-icons/tb';
 
 const ProductTable = ({ products }) => {
 	return (
 		<table className='product-table'>
 			<thead>
 				<tr>
-					<th>ID</th>
-					<th>Category</th>
-					<th>Name</th>
-					<th>Quantity</th>
-					<th>Price (€)</th>
-					<th>Actions</th>
+					<th>
+						ID
+						<TbArrowsDownUp />
+					</th>
+					<th>
+						Category
+						<TbArrowsDownUp />
+					</th>
+					<th>
+						Name
+						<TbArrowsDownUp />
+					</th>
+					<th>
+						Quantity
+						<TbArrowsDownUp />
+					</th>
+					<th>
+						Price (€)
+						<TbArrowsDownUp />
+					</th>
+					<th>
+						Actions
+						<TbArrowsDownUp />
+					</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -25,8 +46,12 @@ const ProductTable = ({ products }) => {
 						<td>{product.quantity}</td>
 						<td>{product.price}</td>
 						<td>
-							<button className='edit-button'>✏️</button>
-							<button className='delete-button'>🗑️</button>
+							<button className='edit-button'>
+								<FaPencilAlt />
+							</button>
+							<button className='delete-button'>
+								<FaTrash />
+							</button>
 						</td>
 					</tr>
 				))}
