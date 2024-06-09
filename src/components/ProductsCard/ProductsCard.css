@@ -1,10 +1,64 @@
 .card-wrapper {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 60px;
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
 }
 
 .product-card {
-	background: #fff;
-	padding: 35px;
+  background: #fff;
+  padding: 35px;
+}
+
+.product-card-image {
+  width: 100%;
+  margin-bottom: 25px;
+  img {
+    width: 100%;
+  }
+}
+.product-card-name {
+  color: rgb(0, 0, 0);
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0%;
+  text-align: center;
+  margin-bottom: 27px;
+}
+.product-card-middle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 35px;
+}
+.product-card-price {
+  color: rgb(252, 91, 0);
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 0px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+.product-card-quantity {
+  color: rgb(0, 0, 0);
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+.product-card-status {
+  color: rgb(5, 188, 82);
+  font-family: Inter;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0%;
+  text-align: left;
 }
