@@ -1,4 +1,5 @@
 import "./ProductsCard.css";
+import { BsCart4 } from "react-icons/bs";
 
 const ProductsCard = ({ products }) => {
   return (
@@ -18,7 +19,10 @@ const ProductsCard = ({ products }) => {
               {product.quantity}
             </div>
           </div>
-          <div className="product-card-status">{product.status}</div>
+          <div className="product-card-status">
+            <BsCart4 />
+            {product.status}
+          </div>
         </div>
       ))}
     </div>
