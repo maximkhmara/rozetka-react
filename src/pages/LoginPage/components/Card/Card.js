@@ -9,8 +9,8 @@ const Card = () => {
 			<div className='card-logo'>
 				<img src={logo} alt='Logo' />
 			</div>
-			<Input placeholderName='User Name' />
-			<Input showIcon placeholderName='Password' />
+			<Input placeholderName='User Name' initialType='text' />
+			<Input showIcon placeholderName='Password' initialType='password' />
 			<LoginBtn />
 		</div>
 	);

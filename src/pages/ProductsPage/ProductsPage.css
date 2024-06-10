@@ -1,0 +1,9 @@
+.products-page {
+	background: rgb(68, 178, 111);
+	padding: 20px 50px;
+	min-height: 100vh;
+}
+
+.products-page-logo {
+	margin-bottom: 60px;
+}
