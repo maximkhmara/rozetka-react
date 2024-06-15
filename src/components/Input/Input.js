@@ -1,8 +1,17 @@
 import "./Input.css";
-import { IoEye, IoEyeOff } from "react-icons/io5"; // додано IoEyeOff для перекресленого ока
+import { IoEye, IoEyeOff } from "react-icons/io5";
 import { useState } from "react";
 
-const Input = ({ ourClass, placeholderName, showIcon, initialType }) => {
+const Input = ({
+  isError,
+  ourClass,
+  placeholderName,
+  showIcon,
+  initialType,
+  onInputChange,
+  value,
+  name,
+}) => {
   const [isPassword, setIsPassword] = useState(initialType === "password");
 
   const handleClick = () => {
@@ -12,6 +21,10 @@ const Input = ({ ourClass, placeholderName, showIcon, initialType }) => {
   return (
     <label className={ourClass ? `login-input ${ourClass}` : "login-input"}>
       <input
+        className={isError && "input-error"}
+        name={name}
+        onChange={(event) => onInputChange(event.target.value)}
+        value={value}
         type={isPassword ? "password" : "text"}
         placeholder={placeholderName}
       />
