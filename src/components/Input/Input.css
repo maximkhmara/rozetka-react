@@ -1,30 +1,46 @@
 .login-input {
-	margin-bottom: 40px;
-	width: 277px;
-	height: 56px;
-	position: relative;
-	input {
-		background: rgb(217, 217, 217);
-		width: 100%;
-		height: 100%;
-		border: none;
-		padding: 0 20px;
-	}
-	::placeholder {
-		color: rgb(68, 178, 111);
-		font-family: Inter;
-		font-size: 14px;
-		font-weight: 600;
-		line-height: 17px;
-		letter-spacing: 0%;
-		text-align: left;
-	}
+  margin-bottom: 40px;
+  width: 277px;
+  height: 56px;
+  position: relative;
+  input {
+    background: rgb(217, 217, 217);
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    border: none;
+  }
+  ::placeholder {
+    color: rgb(68, 178, 111);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17px;
+    letter-spacing: 0%;
+    text-align: left;
+  }
 }
 
 .password-eye-icon {
-	color: rgb(68, 178, 111);
-	font-size: 34px;
-	position: absolute;
-	right: 20px;
-	top: 11px;
+  color: rgb(68, 178, 111);
+  font-size: 34px;
+  position: absolute;
+  right: 20px;
+  top: 11px;
+}
+
+.card-input-error {
+  color: red;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 17px;
+  letter-spacing: 0%;
+  text-align: left;
+  margin-top: -30px;
+  margin-bottom: 30px;
+}
+
+.login-input input.input-error {
+  border: 2px solid red;
 }
