@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
 import "./ProductPreview.css";
 import logo2 from "../../assets/images/logo2.svg";
 
@@ -12,10 +11,12 @@ const ProductPreview = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(
+        const response = await fetch(
           `https://666eb129f1e1da2be520e627.mockapi.io/api/v1/products/${productId}`
         );
-        setProduct(response.data);
+
+        const data = await response.json();
+        setProduct(data);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching product:", error);

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import "./ProductsPage.css";
 import logo2 from "../../assets/images/logo2.svg";
 import ProductsCard from "../../components/ProductsCard/ProductsCard";
@@ -12,10 +11,11 @@ const ProductsPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(
+        const response = await fetch(
           "https://666eb129f1e1da2be520e627.mockapi.io/api/v1/products"
         );
-        setProducts(response.data);
+        const data = await response.json();
+        setProducts(data);
       } catch (error) {
         setError(error);
       } finally {
