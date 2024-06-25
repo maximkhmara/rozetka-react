@@ -51,6 +51,9 @@
   line-height: 44px;
   letter-spacing: 0%;
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .product-price {
   color: rgb(252, 91, 0);

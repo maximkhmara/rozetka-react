@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./ProductPreview.css";
 import logo2 from "../../assets/images/logo2.svg";
+import { LuBadgeCheck } from "react-icons/lu";
 
 const ProductPreview = () => {
   const { productId } = useParams();
@@ -52,7 +53,10 @@ const ProductPreview = () => {
             <img src={product.image} alt={product.name} />
           </div>
           <div className="product-preview-midle-right">
-            <p className="product-status">{product.status}</p>
+            <p className="product-status">
+              <LuBadgeCheck />
+              {product.status}
+            </p>
             <p className="product-price">{product.price}₴</p>
             <p className="product-availability">
               Кількість: {product.quantity}

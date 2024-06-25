@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ProductsPage.css";
 import logo2 from "../../assets/images/logo2.svg";
 import ProductsCard from "../../components/ProductsCard/ProductsCard";
+import { BiLoaderAlt } from "react-icons/bi";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
@@ -27,7 +28,11 @@ const ProductsPage = () => {
   }, []);
 
   if (loading) {
-    return <div className="products-page">Loading...</div>;
+    return (
+      <div className="products-page loading">
+        <BiLoaderAlt className="products-loader" />
+      </div>
+    );
   }
 
   if (error) {
