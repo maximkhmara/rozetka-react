@@ -1,0 +1,111 @@
+.product-preview-wrapper {
+  width: 100%;
+}
+.product-preview-logo {
+  width: 100%;
+  padding: 20px 30px;
+  background: rgb(68, 178, 111);
+}
+.product-preview-content {
+  padding: 30px 40px;
+  h1 {
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 700;
+    color: black;
+  }
+}
+.product-preview-second {
+  display: flex;
+  align-items: center;
+  margin-bottom: 26px;
+}
+.product-preview-arrow {
+  cursor: pointer;
+  font-family: Inter;
+  font-size: 50px;
+  font-weight: 700;
+  color: black;
+  text-decoration: none;
+  margin-right: 40px;
+}
+.product-preview-midle {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+.product-preview-midle-left {
+  width: 400px;
+  margin-right: 45px;
+  img {
+    width: 100%;
+  }
+}
+.product-preview-midle-right {
+}
+.product-status {
+  color: rgb(60, 215, 140);
+  font-family: Inter;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 44px;
+  letter-spacing: 0%;
+  margin: 0;
+}
+.product-price {
+  color: rgb(252, 91, 0);
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 0px;
+  letter-spacing: 0%;
+  margin-bottom: 26px;
+}
+.product-availability {
+  color: rgb(0, 0, 0);
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  letter-spacing: 0%;
+}
+.product-info {
+  width: 100%;
+}
+.product-description {
+  width: 100%;
+  p {
+    color: rgb(0, 0, 0);
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+}
+.product-description-top {
+  width: 100%;
+  display: flex;
+  gap: 25px;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+.product-description-title {
+  color: #000;
+  font-family: Inter;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 39px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+.product-description-name {
+  color: rgb(217, 217, 217);
+  font-family: Inter;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 39px;
+  letter-spacing: 0%;
+  text-align: center;
+}

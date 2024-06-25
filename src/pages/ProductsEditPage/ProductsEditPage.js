@@ -5,6 +5,7 @@ import { FaRegUser } from "react-icons/fa6";
 import { FiPlus } from "react-icons/fi";
 import logo2 from "../../assets/images/logo2.svg";
 import ProductTable from "../../components/ProductTable/ProductTable";
+import { Link } from "react-router-dom";
 
 const ProductsEditPage = () => {
   const [products, setProducts] = useState([]);
@@ -31,7 +32,9 @@ const ProductsEditPage = () => {
         <img src={logo2} alt="Logo" />
       </div>
       <div className="productsEditPage-btns">
-        <IconButton CustomIcon={<FaRegUser />} name="Preview" />
+        <Link to="/products-page">
+          <IconButton CustomIcon={<FaRegUser />} name="Preview" />
+        </Link>
         <IconButton CustomIcon={<FiPlus />} name="Add" />
       </div>
       <div className="productsEditPage-title">Products</div>
