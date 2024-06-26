@@ -1,9 +1,28 @@
 .products-page {
-	background: rgb(68, 178, 111);
-	padding: 20px 50px;
-	min-height: 100vh;
+  background: rgb(68, 178, 111);
+  padding: 20px 50px;
+  min-height: 100vh;
+}
+.products-page.loading {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+}
+.products-loader {
+  animation: rotate 1s infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .products-page-logo {
-	margin-bottom: 60px;
+  margin-bottom: 60px;
 }

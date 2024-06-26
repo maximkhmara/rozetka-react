@@ -1,8 +1,8 @@
 import Input from "../../../../components/Input/Input";
 import logo from "../../../../assets/images/logo.svg";
 import "./Card.css";
-import LoginBtn from "../../../../components/LoginBtn/LoginBtn";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Card = () => {
   const [name, setName] = useState("");
@@ -11,6 +11,8 @@ const Card = () => {
   const [isPasswordEmpty, setIsPasswordEmpty] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const validateForm = () => {
     let isValid = true;
@@ -53,7 +55,7 @@ const Card = () => {
 
       const data = await response.json();
       localStorage.setItem("jwt", data.jwt);
-      alert("Login successful!");
+      navigate("/products-table", { replace: true });
     } catch (error) {
       setErrorMessage(error.message);
     } finally {
@@ -96,7 +98,9 @@ const Card = () => {
         <div className="card-input-error">Please enter the password</div>
       )}
       {errorMessage && <div className="card-input-error">{errorMessage}</div>}
-      <LoginBtn isLoading={isLoading} />
+      <button className="login-submit-btn" type="submit" disabled={isLoading}>
+        {isLoading ? "Loading..." : "Login"}
+      </button>
     </form>
   );
 };

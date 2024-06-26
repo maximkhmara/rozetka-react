@@ -1,75 +1,54 @@
-import './ProductsPage.css';
-import logo2 from '../../assets/images/logo2.svg';
-import ProductsCard from '../../components/ProductsCard/ProductsCard';
+import React, { useEffect, useState } from "react";
+import "./ProductsPage.css";
+import logo2 from "../../assets/images/logo2.svg";
+import ProductsCard from "../../components/ProductsCard/ProductsCard";
+import { BiLoaderAlt } from "react-icons/bi";
 
 const ProductsPage = () => {
-	const products = [
-		{
-			id: 0,
-			image: 'https://content1.rozetka.com.ua/goods/images/big/47592568.jpg',
-			category: 'PC',
-			name: 'Ноутбук Lenovo Y50-70 Aluminum Black',
-			quantity: 5,
-			price: '25,000.00',
-			status: ' Готовий до відправлення'
-		},
-		{
-			id: 1,
-			image: 'https://content1.rozetka.com.ua/goods/images/big/47592568.jpg',
-			category: 'Clothes',
-			name: 'Ноутбук Lenovo Y50-70 Aluminum Black',
-			quantity: 22,
-			price: '4,000.00',
-			status: ' Готовий до відправлення'
-		},
-		{
-			id: 2,
-			image: 'https://content1.rozetka.com.ua/goods/images/big/47592568.jpg',
-			category: 'Plumbing',
-			name: 'Ноутбук Lenovo Y50-70 Aluminum Black',
-			quantity: 1337,
-			price: '5,000.00',
-			status: ' Готовий до відправлення'
-		},
-		{
-			id: 3,
-			image: 'https://content1.rozetka.com.ua/goods/images/big/47592568.jpg',
-			category: 'Plumbing',
-			name: 'Ноутбук Lenovo Y50-70 Aluminum Black',
-			quantity: 1337,
-			price: '5,000.00',
-			status: ' Готовий до відправлення'
-		},
-		{
-			id: 4,
-			image: 'https://content1.rozetka.com.ua/goods/images/big/47592568.jpg',
-			category: 'Plumbing',
-			name: 'Ноутбук Lenovo Y50-70 Aluminum Black',
-			quantity: 1337,
-			price: '5,000.00',
-			status: ' Готовий до відправлення'
-		},
-		{
-			id: 5,
-			image: 'https://content1.rozetka.com.ua/goods/images/big/47592568.jpg',
-			category: 'Plumbing',
-			name: 'Ноутбук Lenovo Y50-70 Aluminum Black',
-			quantity: 1337,
-			price: '5,000.00',
-			status: ' Готовий до відправлення'
-		},
-	];
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-	return (
-		<div className='products-page'>
-			<div className='products-page-logo'>
-				<img src={logo2} alt='Logo' />
-			</div>
-			<div className='products-page-content'>
-				<ProductsCard products={products} />
-			</div>
-		</div>
-	);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(
+          "https://666eb129f1e1da2be520e627.mockapi.io/api/v1/products"
+        );
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="products-page loading">
+        <BiLoaderAlt className="products-loader" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return <div className="products-page">Error: {error.message}</div>;
+  }
+
+  return (
+    <div className="products-page">
+      <div className="products-page-logo">
+        <img src={logo2} alt="Logo" />
+      </div>
+      <div className="products-page-content">
+        <ProductsCard products={products} />
+      </div>
+    </div>
+  );
 };
 
 export default ProductsPage;
