@@ -4,7 +4,7 @@ import { FaPencilAlt } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 import { TbArrowsDownUp } from "react-icons/tb";
 
-const ProductTable = ({ products }) => {
+const ProductTable = ({ products, onDelete }) => {
   return (
     <table className="product-table">
       <thead>
@@ -50,7 +50,10 @@ const ProductTable = ({ products }) => {
               <button className="edit-button">
                 <FaPencilAlt />
               </button>
-              <button className="delete-button">
+              <button
+                className="delete-button"
+                onClick={() => onDelete(product.id)}
+              >
                 <FaTrash />
               </button>
             </td>
