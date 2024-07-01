@@ -6,9 +6,12 @@ import { FiPlus } from "react-icons/fi";
 import logo2 from "../../assets/images/logo2.svg";
 import ProductTable from "../../components/ProductTable/ProductTable";
 import { Link } from "react-router-dom";
+import BasicModal from "../../components/BasicModal/BasicModal";
 
 const ProductsEditPage = () => {
   const [products, setProducts] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [productIdToDelete, setProductIdToDelete] = useState(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -26,6 +29,33 @@ const ProductsEditPage = () => {
     fetchProducts();
   }, []);
 
+  const handleOpenModal = (id) => {
+    setProductIdToDelete(id);
+    setOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpen(false);
+    setProductIdToDelete(null);
+  };
+
+  const handleDeleteProduct = async () => {
+    try {
+      await fetch(
+        `https://666eb129f1e1da2be520e627.mockapi.io/api/v1/products/${productIdToDelete}`,
+        {
+          method: "DELETE",
+        }
+      );
+      setProducts(
+        products.filter((product) => product.id !== productIdToDelete)
+      );
+      handleCloseModal();
+    } catch (error) {
+      console.error("Error deleting product", error);
+    }
+  };
+
   return (
     <div className="productsEditPage-wrapper">
       <div className="productsEditPage-top">
@@ -38,7 +68,12 @@ const ProductsEditPage = () => {
         <IconButton CustomIcon={<FiPlus />} name="Add" />
       </div>
       <div className="productsEditPage-title">Products</div>
-      <ProductTable products={products} />
+      <ProductTable products={products} onDelete={handleOpenModal} />
+      <BasicModal
+        open={open}
+        onClose={handleCloseModal}
+        onDelete={handleDeleteProduct}
+      />
     </div>
   );
 };
