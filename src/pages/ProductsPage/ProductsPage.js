@@ -3,6 +3,7 @@ import "./ProductsPage.css";
 import logo2 from "../../assets/images/logo2.svg";
 import ProductsCard from "../../components/ProductsCard/ProductsCard";
 import { BiLoaderAlt } from "react-icons/bi";
+import { BASE_URL } from "../../apiConfig";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
@@ -12,9 +13,7 @@ const ProductsPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(
-          "https://666eb129f1e1da2be520e627.mockapi.io/api/v1/products"
-        );
+        const response = await fetch(BASE_URL);
         const data = await response.json();
         setProducts(data);
       } catch (error) {

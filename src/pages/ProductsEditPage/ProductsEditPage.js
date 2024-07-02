@@ -7,25 +7,24 @@ import logo2 from "../../assets/images/logo2.svg";
 import ProductTable from "../../components/ProductTable/ProductTable";
 import { Link } from "react-router-dom";
 import BasicModal from "../../components/BasicModal/BasicModal";
+import { BASE_URL } from "../../apiConfig";
 
 const ProductsEditPage = () => {
   const [products, setProducts] = useState([]);
   const [open, setOpen] = useState(false);
   const [productIdToDelete, setProductIdToDelete] = useState(null);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch(
-          "https://666eb129f1e1da2be520e627.mockapi.io/api/v1/products"
-        );
-        const data = await response.json();
-        setProducts(data);
-      } catch (error) {
-        console.error("Error fetching", error);
-      }
-    };
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch(BASE_URL);
+      const data = await response.json();
+      setProducts(data);
+    } catch (error) {
+      console.error("Error fetching", error);
+    }
+  };
 
+  useEffect(() => {
     fetchProducts();
   }, []);
 
@@ -41,15 +40,10 @@ const ProductsEditPage = () => {
 
   const handleDeleteProduct = async () => {
     try {
-      await fetch(
-        `https://666eb129f1e1da2be520e627.mockapi.io/api/v1/products/${productIdToDelete}`,
-        {
-          method: "DELETE",
-        }
-      );
-      setProducts(
-        products.filter((product) => product.id !== productIdToDelete)
-      );
+      await fetch(`${BASE_URL}/${productIdToDelete}`, {
+        method: "DELETE",
+      });
+      await fetchProducts();
       handleCloseModal();
     } catch (error) {
       console.error("Error deleting product", error);
