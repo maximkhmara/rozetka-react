@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import "./ProductPreview.css";
 import logo2 from "../../assets/images/logo2.svg";
 import { LuBadgeCheck } from "react-icons/lu";
+import { BASE_URL } from "../../apiConfig";
 
 const ProductPreview = () => {
   const { productId } = useParams();
@@ -12,9 +13,7 @@ const ProductPreview = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(
-          `https://666eb129f1e1da2be520e627.mockapi.io/api/v1/products/${productId}`
-        );
+        const response = await fetch(`${BASE_URL}/${productId}`);
 
         const data = await response.json();
         setProduct(data);

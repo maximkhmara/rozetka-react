@@ -6,25 +6,49 @@ import { FiPlus } from "react-icons/fi";
 import logo2 from "../../assets/images/logo2.svg";
 import ProductTable from "../../components/ProductTable/ProductTable";
 import { Link } from "react-router-dom";
+import BasicModal from "../../components/BasicModal/BasicModal";
+import { BASE_URL } from "../../apiConfig";
 
 const ProductsEditPage = () => {
   const [products, setProducts] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [productIdToDelete, setProductIdToDelete] = useState(null);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch(BASE_URL);
+      const data = await response.json();
+      setProducts(data);
+    } catch (error) {
+      console.error("Error fetching", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch(
-          "https://666eb129f1e1da2be520e627.mockapi.io/api/v1/products"
-        );
-        const data = await response.json();
-        setProducts(data);
-      } catch (error) {
-        console.error("Error fetching", error);
-      }
-    };
-
     fetchProducts();
   }, []);
+
+  const handleOpenModal = (id) => {
+    setProductIdToDelete(id);
+    setOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpen(false);
+    setProductIdToDelete(null);
+  };
+
+  const handleDeleteProduct = async () => {
+    try {
+      await fetch(`${BASE_URL}/${productIdToDelete}`, {
+        method: "DELETE",
+      });
+      await fetchProducts();
+      handleCloseModal();
+    } catch (error) {
+      console.error("Error deleting product", error);
+    }
+  };
 
   return (
     <div className="productsEditPage-wrapper">
@@ -38,7 +62,12 @@ const ProductsEditPage = () => {
         <IconButton CustomIcon={<FiPlus />} name="Add" />
       </div>
       <div className="productsEditPage-title">Products</div>
-      <ProductTable products={products} />
+      <ProductTable products={products} onDelete={handleOpenModal} />
+      <BasicModal
+        open={open}
+        onClose={handleCloseModal}
+        onDelete={handleDeleteProduct}
+      />
     </div>
   );
 };
