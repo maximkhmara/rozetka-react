@@ -7,12 +7,15 @@ import logo2 from "../../assets/images/logo2.svg";
 import ProductTable from "../../components/ProductTable/ProductTable";
 import { Link } from "react-router-dom";
 import BasicModal from "../../components/BasicModal/BasicModal";
+import ModalForm from "../../components/ModalForm/ModalForm";
 import { BASE_URL } from "../../apiConfig";
 
 const ProductsEditPage = () => {
   const [products, setProducts] = useState([]);
   const [open, setOpen] = useState(false);
+  const [openModalForm, setOpenModalForm] = useState(false);
   const [productIdToDelete, setProductIdToDelete] = useState(null);
+  const [productToEdit, setProductToEdit] = useState(null);
 
   const fetchProducts = async () => {
     try {
@@ -38,6 +41,10 @@ const ProductsEditPage = () => {
     setProductIdToDelete(null);
   };
 
+  const handleCloseModalForm = () => {
+    setOpenModalForm(false);
+  };
+
   const handleDeleteProduct = async () => {
     try {
       await fetch(`${BASE_URL}/${productIdToDelete}`, {
@@ -50,6 +57,17 @@ const ProductsEditPage = () => {
     }
   };
 
+  const handleEditProduct = (id) => {
+    const product = products.find((p) => p.id === id);
+    setProductToEdit(product);
+    setOpenModalForm(true);
+  };
+
+  const handleAddProduct = () => {
+    setOpenModalForm(true);
+    setProductToEdit(null);
+  };
+
   return (
     <div className="productsEditPage-wrapper">
       <div className="productsEditPage-top">
@@ -59,14 +77,26 @@ const ProductsEditPage = () => {
         <Link to="/products-page">
           <IconButton CustomIcon={<FaRegUser />} name="Preview" />
         </Link>
-        <IconButton CustomIcon={<FiPlus />} name="Add" />
+        <button className="icon-add-button" onClick={handleAddProduct}>
+          <FiPlus /> Add
+        </button>
       </div>
       <div className="productsEditPage-title">Products</div>
-      <ProductTable products={products} onDelete={handleOpenModal} />
+      <ProductTable
+        products={products}
+        onDelete={handleOpenModal}
+        onEdit={handleEditProduct}
+      />
       <BasicModal
         open={open}
         onClose={handleCloseModal}
         onDelete={handleDeleteProduct}
+      />
+      <ModalForm
+        open={openModalForm}
+        onClose={handleCloseModalForm}
+        product={productToEdit}
+        isEditing={!!productToEdit}
       />
     </div>
   );
