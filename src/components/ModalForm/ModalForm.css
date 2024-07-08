@@ -82,3 +82,15 @@
   font-size: 16px;
   cursor: pointer;
 }
+
+.error-border {
+  border: 1px solid red;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: -20px;
+  margin-bottom: 20px;
+  font-family: Inter;
+}
