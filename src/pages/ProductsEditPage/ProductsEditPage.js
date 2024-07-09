@@ -68,6 +68,10 @@ const ProductsEditPage = () => {
     setProductToEdit(null);
   };
 
+  const handleProductAdded = () => {
+    fetchProducts();
+  };
+
   return (
     <div className="productsEditPage-wrapper">
       <div className="productsEditPage-top">
@@ -97,6 +101,7 @@ const ProductsEditPage = () => {
         onClose={handleCloseModalForm}
         product={productToEdit}
         isEditing={!!productToEdit}
+        onProductAdded={handleProductAdded}
       />
     </div>
   );
